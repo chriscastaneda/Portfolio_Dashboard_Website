@@ -1,0 +1,59 @@
+.
++-- bower.json
++-- gulpfile.js # Main gulp config
++-- karma.conf.js # Karma test runner configurations
++-- package.json
++-- gulp # Contains gulp configurations 
++-- src
+    +-- app
+    ¦   +-- components # Directives
+    ¦   ¦   +-- posts
+    ¦   ¦       +-- posts.directive.js
+    ¦   ¦       +-- posts.directive.spec.js
+    ¦   ¦       +-- posts.html
+
+    ¦   +-- controllers # Controllers (views)
+    ¦   ¦   +-- edit
+    ¦   ¦   ¦   +-- edit.controller.js
+    ¦   ¦   ¦   +-- edit.controller.spec.js
+    ¦   ¦   ¦   +-- edit.html
+    ¦   ¦   +-- main
+    ¦   ¦   ¦   +-- main.controller.js
+    ¦   ¦   ¦   +-- main.controller.spec.js
+    ¦   ¦   ¦   +-- main.html
+    ¦   ¦   +-- post
+    ¦   ¦   ¦   +-- post.controller.js
+    ¦   ¦   ¦   +-- post.controller.spec.js
+    ¦   ¦   ¦   +-- post.html
+    ¦   ¦   +-- publish
+    ¦   ¦       +-- publish.controller.js
+    ¦   ¦       +-- publish.controller.spec.js
+    ¦   ¦       +-- publish.html
+
+    ¦   +-- filters # Custom filters
+    ¦   ¦   +-- sanitize
+    ¦   ¦       +-- sanitize.filter.js
+
+    ¦   +-- index.config.js # Angular configurations
+    ¦   +-- index.constants.js # Angular global constants
+    ¦   +-- index.module.js # Angular modules
+    ¦   +-- index.route.js # Angular routes
+    ¦   +-- index.run.js # Main runblock of angular
+    ¦   +-- index.scss # Main SASS file
+
+    ¦   +-- partials # Static HTMLs
+    ¦   ¦   +-- nav.html
+    ¦   ¦   +-- sidebar.html
+
+    ¦   +-- services # Angular services
+    ¦       +-- posts
+    ¦           +-- posts.service.js
+    ¦           +-- posts.service.spec.js
+
+    +-- assets # App assets
+    ¦   +-- img
+    ¦       +-- favicon.ico
+    ¦       +-- favicon.png
+    ¦       +-- macchiato.png
+
+    +-- index.html # Main index file
