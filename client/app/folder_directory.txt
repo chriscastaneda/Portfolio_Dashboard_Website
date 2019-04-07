@@ -1,0 +1,5 @@
+.
++-- index.html # Main index file
++-- assets # App assets
++-- src #angularjs files
+    

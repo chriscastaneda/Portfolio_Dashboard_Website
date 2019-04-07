@@ -1,0 +1,6 @@
+.
++-- server
++-- design #ui/ux designs
++-- client
++-- assests #(Gihub page)
++-- *other Github files
