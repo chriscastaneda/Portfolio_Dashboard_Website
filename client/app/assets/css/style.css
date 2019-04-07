@@ -63,6 +63,8 @@ button.close {
 }
 
 
+
+
 .sidebar[data-color="red"]:after {
     background: #FB404B;
     background: -moz-linear-gradient(top, #FB404B 0%, #bb0502 100%);
