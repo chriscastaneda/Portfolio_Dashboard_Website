@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 
-<html lang="en">
+<html lang="en" ng-app="dashboard">
 <head>
     <meta charset="utf-8">
 
@@ -26,13 +26,14 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
-    <!--     Fonts and icons     -->
+
+    <!--     Fonts and icons  DoWnLOAd TO NoDe MoDule!!   -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 
-<body ng-app>
+<body ng-controller="main">
     <div class="wrapper">
         <div class="sidebar" data-color="red">
 
@@ -42,6 +43,12 @@
                 </div>
                 <!-- Sidebar Tabs-->
                 <ul class="nav">
+                    <li ng-class="{'active': page === '/'}"><a href="#/"><p>Dashboard</p></a></li>
+                    <li ng-class="{'active': page === '/table'}"><a href="#/table"><p>Table List</p></a></li>
+                    <li ng-class="{'active': page === '/maps'}"><a href="#/maps"><p>Maps</p></a></li>
+                </ul>
+
+                <!--<ul class="nav">
                     <li class="active">
                         <a href="index.html">
                             <p>Dashboard</p>
@@ -57,7 +64,7 @@
                             <p>Maps</p>
                         </a>
                     </li>
-                </ul>
+                </ul>-->
             </div>
         </div>
 
@@ -76,7 +83,7 @@
                         </button>
 
 
-                        <a class="navbar-brand">Dashboard</a>
+                        <a class="navbar-brand">{{ title() }}</a>
                     </div>
                     <!-- Navbar icons -->
                     <div class="collapse navbar-collapse">
@@ -113,11 +120,11 @@
                         <!-- Navbar Options -->
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Account
-                            <li>
-                                <a href="">
-                                    Account
-                                </a>
-                            </li>-->
+                    <li>
+                        <a href="">
+                            Account
+                        </a>
+                    </li>-->
                             <!-- Dropdown -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -149,77 +156,8 @@
             </nav>
 
 
-            <!--      Home page        -->
-
-            <!-- Content Space -->
-            <div class="content">
-                <div class="container-fluid">
-
-                    <!--LineGraph-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Users Behavior</h4>
-                                    <p class="category">24 Hours performance</p>
-                                </div>
-                                <div class="content">
-                                    <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
-
-
-
-                                    <div class="footer">
-                                        <div class="legend">
-                                            <i></i> X: Interaction,
-                                            <i></i> Y: Date
-                                        </div>
-                                        <hr>
-                                        <div class="stats">
-                                            <i class="fa fa-history"></i> Updated 3 minutes ago
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- User Card -->
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card ">
-                                <div class="header w3-light-grey">
-                                    <img class="avatar border-gray w3-left w3-margin-right" src="assets/img/default-avatar.png" alt="...">
-                                    <h4 class="title">User Name</h4>
-                                    <p class="category">Software engineer</p><!--Randmon title generator-->
-                                </div>
-                                <div class="content">
-                                    <div class="table-full-width">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <i class="fa fa-circle text-info"></i> Android: 8.1 Oreo
-                                                        <i class="fa fa-circle text-danger"></i> iOS: v12
-                                                        <i class="fa fa-circle text-warning"></i> Browser: IE
-                                                        <p> Location: </p>
-                                                        <p> Interaction: </p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="footer">
-                                        <hr>
-                                        <div class="stats">
-                                            <i class="fa fa-history"></i> Updated 3 minutes ago
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--      Home page       -->
+            <ng-view></ng-view>
 
             <!-- Footer -->
             <footer class="footer">
@@ -258,25 +196,28 @@
 <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!--  Charts Plugin -->
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<!--  Charts Plugin 
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>-->
 <script src="assets/js/canvasjs.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+<!--  Notifications Plugin   -->
+<script src="assets/js/bootstrap-notify.js"></script> 
+
+<!--  Google Maps Plugin    
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
+
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! 
+<script src="assets/js/demo.js"></script>-->
 
 <!-- Custom -->
 <script src="assets/js/chart.js"></script>
 <!--<script src="assets/js/generator.js"></script>-->
 
-<!-- Angularjs-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-
+<!-- Gulp -->
+<script src="../gulp/build.js"></script>
 
 
 

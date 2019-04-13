@@ -1,6 +1,11 @@
 .
-+-- app
-    +-- src
++-- bower.json
++-- gulpfile.js # Main gulp config
++-- karma.conf.js # Karma test runner configurations
++-- package.json
++-- gulp # Contains gulp configurations 
++-- src
+    +-- app
     ¦   +-- components # Directives
     ¦   ¦   +-- posts
     ¦   ¦       +-- posts.directive.js
