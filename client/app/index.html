@@ -35,159 +35,25 @@
 
 <body ng-controller="main">
     <div class="wrapper">
-        <div class="sidebar" data-color="red">
 
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a class="simple-text"> Data Analytics </a>
-                </div>
-                <!-- Sidebar Tabs-->
-                <ul class="nav">
-                    <li ng-class="{'active': page === '/'}"><a href="#/"><p>Dashboard</p></a></li>
-                    <li ng-class="{'active': page === '/table'}"><a href="#/table"><p>Table List</p></a></li>
-                    <li ng-class="{'active': page === '/maps'}"><a href="#/maps"><p>Maps</p></a></li>
-                </ul>
+        <!-- Sidebar -->
+        <ng-include src="'app/src/partials/sidebar.html'"></ng-include>
 
-                <!--<ul class="nav">
-                    <li class="active">
-                        <a href="index.html">
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="table.html">
-                            <p>Table List</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="maps.html">
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                </ul>-->
-            </div>
-        </div>
-
-        <!-- TopNavbar -->
+        <!-- Left Wrapper -->
         <div class="main-panel">
-            <!-- NavBar -->
-            <nav class="navbar navbar-default navbar-fixed">
+            <!-- TopNav -->
+            <ng-include src="'app/src/partials/nav.html'"></ng-include>
+
+            <!-- Content Space -->
+            <div class="content">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-
-                        <button type="button" class="navbar-toggle" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-
-                        <a class="navbar-brand">{{ title() }}</a>
-                    </div>
-                    <!-- Navbar icons -->
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-left">
-
-                            <!-- Notificaton dropdown -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-lg hidden-md"></b>
-                                    <p class="hidden-lg hidden-md">
-                                        5 Notifications
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notification 1</a></li>
-                                    <li><a href="#">Notification 2</a></li>
-                                    <li><a href="#">Notification 3</a></li>
-                                    <li><a href="#">Notification 4</a></li>
-                                    <li><a href="#">Another notification</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Search -->
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-search"></i>
-                                    <p class="hidden-lg hidden-md">Search</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <!-- Navbar Options -->
-                        <ul class="nav navbar-nav navbar-right">
-                            <!-- Account
-                    <li>
-                        <a href="">
-                            Account
-                        </a>
-                    </li>-->
-                            <!-- Dropdown -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-                                        Dropdown
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </li>
-                            <!-- Logout -->
-                            <li>
-                                <a href="#">
-                                    <p>Log out</p>
-                                </a>
-                            </li>
-                            <li class="separator hidden-lg"></li>
-                        </ul>
-                    </div>
+                    <!-- Page Routes -->
+                    <ng-view></ng-view>
                 </div>
-            </nav>
-
-
-            <!--      Home page       -->
-            <ng-view></ng-view>
+            </div>
 
             <!-- Footer -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </footer>
+            <ng-include src="'app/src/partials/footer.html'"></ng-include>
         </div>
     </div>
 </body>

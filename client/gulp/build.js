@@ -374,30 +374,40 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $routeProvider
         .when('/', {
-            template: '<h2>Dashboard</h2>',
+            //template: '<h2>H2 Template</h2>',//Display dashboard content in ng-view
+            templateUrl: 'app/src/controllers/home/home.html', 
             controller: 'home'//Paste title to home page from home.js
         })
         .when('/table', {
-            template: '<h2>Table</h2>',
+            template: '<h2>Table Page</h2>',
             controller: 'table'//Paste title to mable page from table.js
         })
         .when('/maps', {
-            template: '<h2>Maps</h2>',
+            template: '<h2>Maps Page</h2>',
             controller: 'maps'//Paste title to maps page from maps.js
         })
+        /*.when('/login', {
+            template: '<h2>Login Page</h2>',
+            controller: 'maps'//Paste title to maps page from maps.js
+        })
+        .when('/register', {
+            template: '<h2>Register Page</h2>',
+            controller: 'maps'//Paste title to maps page from maps.js
+        })
+        .when('/account', {
+            template: '<h2>Account Page</h2>',
+            controller: 'account'//Paste title to maps page from maps.js
+        })
+        .when('/logout', {
+            template: '<h2>Logout Page</h2>',
+            controller: 'maps'//Paste title to maps page from maps.js
+        })
+        .otherwise({//error handler
+            redirectTo: '/'
+        })*/
 }])
-app.service('dashboard', function () {
-    $this = this,
-    $this.title = '', //Set title to home.js
-    $this.getTitle = function () { //Get title from home.js
-        return $this.title;
-    }
-})
-app.controller('home', ['$scope', 'dashboard', function($scope, dashboard){
 
-    $scope.title = 'Dashboard';//Page title
-    dashboard.title = $scope.title; //send to route.js
-}])
+
 app.controller('main', ['$scope', '$location', 'dashboard', 
     function ($scope, $location, dashboard) { //['$scope',..] handle minify
 
@@ -418,3 +428,30 @@ app.controller('table', ['$scope', 'dashboard', function ($scope, dashboard) {
 	$scope.title = 'Table List';//Page title
 	dashboard.title = $scope.title; //send to route.js
 }])
+app.service('database', ['$http', function ($http) {
+    this.getData = function () {//Get data from custom api
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:4000/products/test'
+        }).then(function (response) {//Recieve data to webapp
+            return response;
+        })
+    }
+}]);
+app.service('dashboard', function () {
+    $this = this,
+    $this.title = '', //Set title to home.js
+    $this.getTitle = function () { //Get title from home.js
+        return $this.title;
+    }
+})
+app.controller('home', ['$scope', 'dashboard', 'database', function ($scope, dashboard, database) {
+
+    $scope.title = 'The Dashboard Project: Guest';//Page title
+    dashboard.title = $scope.title; //send to route.js
+
+    database.getData().then(function(books){//Store data to $scope = array
+        console.log(books.data);//check if data has recieved
+        $scope.books = books.data;
+    })
+}]);
