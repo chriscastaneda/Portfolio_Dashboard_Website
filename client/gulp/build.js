@@ -379,11 +379,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: 'home'//Paste title to home page from home.js
         })
         .when('/table', {
-            template: '<h2>Table Page</h2>',
+            template: '<h2>Body Table Page</h2>',
             controller: 'table'//Paste title to mable page from table.js
         })
         .when('/maps', {
-            template: '<h2>Maps Page</h2>',
+            template: '<h2>Body Maps Page</h2>',
             controller: 'maps'//Paste title to maps page from maps.js
         })
         /*.when('/login', {
@@ -406,8 +406,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             redirectTo: '/'
         })*/
 }])
-
-
 app.controller('main', ['$scope', '$location', 'dashboard', 
     function ($scope, $location, dashboard) { //['$scope',..] handle minify
 
@@ -428,11 +426,63 @@ app.controller('table', ['$scope', 'dashboard', function ($scope, dashboard) {
 	$scope.title = 'Table List';//Page title
 	dashboard.title = $scope.title; //send to route.js
 }])
+
+
 app.service('database', ['$http', function ($http) {
-    this.getData = function () {//Get data from custom api
+    this.testData = function () {//Get data from custom api
         return $http({
             method: 'GET',
             url: 'http://localhost:4000/products/test'
+        }).then(function (response) {//Recieve data to webapp
+            return response;
+        })
+    }/*
+    this.createData = function () {//Get data from custom api
+        return $http({
+            method: 'POST',
+            data: {
+                name: "oranges",
+                price: 10,
+                firstname: "Jane",
+                lastname: "doe",
+                device: "IE",
+                x: 32,
+                y: 34
+            },
+            url: 'http://localhost:4000/products/create'
+        }).then(function (response) {//Recieve data to webapp
+            return response;
+        })
+    }*/
+    this.readData = function () {//Get data from custom api
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:4000/products/5cd8a151d637ef3930231ba9'
+        }).then(function (response) {//Recieve data to webapp
+            return response;
+        })
+    }/*
+    this.updateData = function () {//Get data from custom api
+        return $http({
+            method: 'PUT',
+            data: {
+                name: "banana",
+                price: 100,
+                firstname: "Danny",
+                lastname: "Dahi",
+                device: "Safari",
+                x: 320,
+                y: 340
+            },
+            url: 'http://localhost:4000/products/5cd8d0d4d637ef3930231bad/update'
+        }).then(function (response) {//Recieve data to webapp
+            return response;
+        })
+    }*/
+    this.deleteData = function () {//Get data from custom api
+        return $http({
+            method: 'DELETE',
+            url: 'http://localhost:4000/products/5cd8a00d1c8175354cf5ff35/delete'
         }).then(function (response) {//Recieve data to webapp
             return response;
         })
@@ -450,8 +500,27 @@ app.controller('home', ['$scope', 'dashboard', 'database', function ($scope, das
     $scope.title = 'The Dashboard Project: Guest';//Page title
     dashboard.title = $scope.title; //send to route.js
 
-    database.getData().then(function(books){//Store data to $scope = array
-        console.log(books.data);//check if data has recieved
-        $scope.books = books.data;
+    database.testData().then(function (Json){//Store data to $scope.array
+        console.log(Json.data);//check if data has recieved
+    })
+    /*
+    database.createData().then(function (Json) {//Store data to $scope.array
+        //$scope.Json = Json.data; //Save json data Locally
+        console.log(Json.data);//view Json inside array
+    })*/
+
+    database.readData().then(function (Json) {//Store data to $scope.array
+        $scope.Json = Json.data; //Save json data Locally
+        console.log($scope.Json);//view Json inside array
+    })
+    /*
+    database.updateData().then(function (Json) {//Store data to $scope.array
+        //$scope.Json = Json.data; //Save json data Locally
+        console.log(Json.data);//view Json inside array
+    })
+    */
+    database.deleteData().then(function (Json) {//Store data to $scope.array
+        //$scope.Json = Json.data; //Save json data Locally
+        console.log(Json.data);//view Json inside array
     })
 }]);
