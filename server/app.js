@@ -1,11 +1,12 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');//parses information from POST
 var product = require('./routes/product.route'); // Imports routes for the products
 var mongoose = require('mongoose');
 
 // initialize our express app
 var app = express();
-/*
+
+/*//CORS Origion issue between servers, Fixed with chrome extension: Allow-Control-Allow-Origin: *
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -14,9 +15,9 @@ app.use(function (req, res, next) {
 });*/
 
 //connect to database. Set up mongoose connection
-var dev_db_url = 'mongodb://127.0.0.1/dashboard_app';
+//var dev_db_url = 'mongodb://127.0.0.1/dashboard_app';
 var dev_db_url_test = 'mongodb://127.0.0.1/dashboard_app_test';
-var mongoDB = process.env.MONGODB_URI || dev_db_url; //|| dev_db_url_test;
+var mongoDB = process.env.MONGODB_URI || dev_db_url_test;
 mongoose.connect(mongoDB, { useNewUrlParser: true });//Mongoose DeprecationWarning
 mongoose.Promise = global.Promise;
 mongoose.set('useFindAndModify', false);//Mongoose DeprecationWarning

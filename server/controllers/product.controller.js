@@ -10,7 +10,12 @@ exports.product_create = function (req, res, next) {
     var product = new Product(
         {
             name: req.body.name,
-            price: req.body.price
+            price: req.body.price,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            device: req.body.device,
+            x: req.body.x,
+            y: req.body.y
         }
     );
 
