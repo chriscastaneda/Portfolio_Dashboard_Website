@@ -33,5 +33,5 @@ var port = 4000;
 
 //telling our express app to listen to that port.
 app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
+    console.log('Server is up and running on port number ' + port);
 });

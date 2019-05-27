@@ -5,17 +5,16 @@ exports.test = function (req, res) {
     res.send('Test controller is working!');
 };
 
-//Create- new product using data 
+//Create- new object using data
 exports.product_create = function (req, res, next) {
     var product = new Product(
         {
-            name: req.body.name,
-            price: req.body.price,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             device: req.body.device,
-            x: req.body.x,
-            y: req.body.y
+            visit: req.body.visit,
+            guest_x: req.body.x,
+            guest_y: req.body.y
         }
     );
 
@@ -26,10 +25,19 @@ exports.product_create = function (req, res, next) {
         res.send('Product Created successfully')
     })
 };
-
-//Read- reads existing product from product id being sent in the request.
-exports.product_details = function (req, res) {
+/*
+//Read- read objects by id from database
+exports.product_id = function (req, res, next) {
     Product.findById(req.params.id, function (err, product) {
+        if (err) {
+            return next(err);
+        }
+        res.send(product);
+    })
+};*/
+//Read- read all objects from database
+exports.product_objects = function (req, res) {
+    Product.find({}, function (err, product) {
         if (err) {
             return next(err);
         }
@@ -37,16 +45,16 @@ exports.product_details = function (req, res) {
     })
 };
 
-//Update- finds existing product using id.
-exports.product_update = function (req, res) {
+//Update- finds existing objects using id.
+exports.product_update = function (req, res, next) {
     Product.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, product) {
         if (err) return next(err);
         res.send('Product udpated.');
     });
 };
 
-//Delete- deletes an existing product
-exports.product_delete = function (req, res) {
+//Delete- deletes an existing object
+exports.product_delete = function (req, res, next) {
     Product.findByIdAndRemove(req.params.id, function (err) {
         if (err) return next(err);
         res.send('Deleted successfully!');
