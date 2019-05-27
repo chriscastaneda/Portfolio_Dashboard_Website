@@ -1,10 +1,10 @@
 <!-- User Card -->
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3" ng-repeat="object in object track by $index">
         <div class="card ">
             <div class="header w3-light-grey">
                 <img class="avatar border-gray w3-left w3-margin-right" src="assets/img/default-avatar.png" alt="...">
-                <h4 class="title">{{ Json.firstname }} {{ Json.lastname }}</h4>
+                <h4 class="title">{{ object.firstname }} {{ object.lastname }}</h4>
                 <p class="category">Software engineer</p><!--Randmon title generator-->
             </div>
             <div class="content">
@@ -15,9 +15,9 @@
                                 <td>
                                     <i class="fa fa-circle text-info"></i> Android: 8.1 Oreo
                                     <i class="fa fa-circle text-danger"></i> iOS: v12
-                                    <i class="fa fa-circle text-warning"></i> Browser: {{ Json.device }}
+                                    <i class="fa fa-circle text-warning"></i> Browser: {{ object.device }}
                                     <p> Location: </p>
-                                    <p> Interaction: </p>
+                                    <p> Visited: {{ object.visit }} </p>
                                 </td>
                             </tr>
                         </tbody>

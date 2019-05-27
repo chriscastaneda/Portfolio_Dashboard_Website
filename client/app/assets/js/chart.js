@@ -1,3 +1,5 @@
+
+/*
 window.onload = function () {
 
     var dataPoints = [];
@@ -41,5 +43,17 @@ window.onload = function () {
     function updateData() {
         $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=" + xValue + "&ystart=" + yValue + "&length=" + newDataCount + "type=json&callback=?", addData);
     }
+    
 
-}
+    //https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=100&type=json
+    
+
+
+
+    $.getJSON("/https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=100&type=json", function (data) {
+        $.each(data, function (key, value) {
+            dataPoints.push({ x: value[0], y: parseInt(value[1]) });
+        });
+        chart.render();
+    });
+}*/
