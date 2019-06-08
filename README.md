@@ -49,7 +49,7 @@ Live Demo: https://
  ```
 
 ## Client - Angular JS
-- Navigate to client-jasmine/ (with jasmine framework) OR client-mocha/ (with mocha framework)
+- Navigate to client/
 - `npm install`
 - `gulp` to run the app
 
