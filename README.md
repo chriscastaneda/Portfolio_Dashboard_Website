@@ -2,24 +2,23 @@
 <img src="https://raw.githubusercontent.com/msintaha/macchiato/master/assets/img/macchiato-text.png">
 </p>
 
-# Macchiato
+# Angular Dashboard
 A MEAN Stack boilerplate to get you started with building **Production Ready** software/app.
 
-Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvCZDGkK2CH
+Live Demo: https://
 
-#### N.B. The server and client sides are fully separate
+#### Both server and client sides are fully separate
 
 ## Setup
-- Install NodeJS 6.9.1
-- `npm install -g gulp gulp-cli eslint bower`
+- Install NodeJS 10.15.3
+- `npm install -g gulp gulp-cli`
 - First run server, then run client
 
 ## Server - Express JS
--  Create 2 databases via robomongo `macchiato` and `macchiato_test`
+-  Create database via robomongo `dashboard_app`
 - Navigate to server/
 - `npm install` to install project dependencies
 - `nodemon` to run the app
-- `npm test` to run unit tests
 
 ```bash
 .
@@ -52,9 +51,7 @@ Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvC
 ## Client - Angular JS
 - Navigate to client-jasmine/ (with jasmine framework) OR client-mocha/ (with mocha framework)
 - `npm install`
-- `bower install`
-- `gulp serve` to run the app
-- `gulp test` to run unit tests
+- `gulp` to run the app
 
 ```bash
 .
@@ -111,7 +108,5 @@ Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvC
     └── index.html # Main index file
 ```
 
-# License
-This project is licensed under the MIT license.
 
 If you have any questions or comments, please create an issue.
