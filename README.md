@@ -1,38 +1,117 @@
-The dashboard project
---------------
-## Softwares & Technologies:
+<p align="center">
+<img src="https://raw.githubusercontent.com/msintaha/macchiato/master/assets/img/macchiato-text.png">
+</p>
 
--A MEAN Stack boilerplate to get you started with building Production Ready software/app.
+# Macchiato
+A MEAN Stack boilerplate to get you started with building **Production Ready** software/app.
 
 Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvCZDGkK2CH
 
-N.B. The server and client sides are fully separate
+#### N.B. The server and client sides are fully separate
 
-## Installations:
+## Setup
+- Install NodeJS 6.9.1
+- `npm install -g gulp gulp-cli eslint bower`
+- First run server, then run client
 
-**-GitKraken**
+## Server - Express JS
+-  Create 2 databases via robomongo `macchiato` and `macchiato_test`
+- Navigate to server/
+- `npm install` to install project dependencies
+- `nodemon` to run the app
+- `npm test` to run unit tests
 
-###### Instructions:
+```bash
+.
+├── app.js # Main node server folder
+├── config
+│   └── index.js # Configurations go here
+├── controllers
+│   └── posts # example controller with it's test files
+│       ├── TEST
+│       │   └── runner.js
+│       └── index.js
+├── models
+│   └── post # example model
+│       └── index.js
+├── package.json
+├── public # assets folder
+│   └── stylesheets
+│       └── style.css
+├── routes # contains all route endpoints
+│   └── endpoints
+│       └── index.js
+├── test # A configuration for running tests
+│   └── utils.js
+└── views # Frontend view (not used)
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
+ ```
 
-1. Know how to use simple Git WorkFlow:
-https://www.youtube.com/watch?v=aJnFGMclhU8
+## Client - Angular JS
+- Navigate to client-jasmine/ (with jasmine framework) OR client-mocha/ (with mocha framework)
+- `npm install`
+- `bower install`
+- `gulp serve` to run the app
+- `gulp test` to run unit tests
 
-2. Know how to use GitKraken:
-https://www.youtube.com/watch?v=xWHF9ieStlw
+```bash
+.
+├── bower.json
+├── gulpfile.js # Main gulp config
+├── karma.conf.js # Karma test runner configurations
+├── package.json
+└── gulp # Contains gulp configurations 
+└── src
+    ├── app
+    │   ├── components # Directives
+    │   │   └── posts
+    │   │       ├── posts.directive.js
+    │   │       ├── posts.directive.spec.js
+    │   │       └── posts.html
+    │   ├── controllers # Controllers (views)
+    │   │   ├── edit
+    │   │   │   ├── edit.controller.js
+    │   │   │   ├── edit.controller.spec.js
+    │   │   │   └── edit.html
+    │   │   ├── main
+    │   │   │   ├── main.controller.js
+    │   │   │   ├── main.controller.spec.js
+    │   │   │   └── main.html
+    │   │   ├── post
+    │   │   │   ├── post.controller.js
+    │   │   │   ├── post.controller.spec.js
+    │   │   │   └── post.html
+    │   │   └── publish
+    │   │       ├── publish.controller.js
+    │   │       ├── publish.controller.spec.js
+    │   │       └── publish.html
+    │   ├── filters # Custom filters
+    │   │   └── sanitize
+    │   │       └── sanitize.filter.js
+    │   ├── index.config.js # Angular configurations
+    │   ├── index.constants.js # Angular global constants
+    │   ├── index.module.js # Angular modules
+    │   ├── index.route.js # Angular routes
+    │   ├── index.run.js # Main runblock of angular
+    │   ├── index.scss # Main SASS file
+    │   ├── partials # Static HTMLs
+    │   │   ├── nav.html
+    │   │   └── sidebar.html
+    │   └── services # Angular services
+    │       └── posts
+    │           ├── posts.service.js
+    │           └── posts.service.spec.js
+    ├── assets # App assets
+    │   └── img
+    │       ├── favicon.ico
+    │       ├── favicon.png
+    │       └── macchiato.png
+    └── index.html # Main index file
+```
 
-https://support.gitkraken.com/start-here/interface
+# License
+This project is licensed under the MIT license.
 
-###### Project Settings:
-
-1. Open existing project [Paste Project Path: AndroidStudioProjects > “ ...  “ ]
-
-2. Paste GitLab HTML link
-
-https://support.gitkraken.com/working-with-repositories/open-clone-init
-
-3. Setup Your GitFlow:
-https://support.gitkraken.com/git-workflows-and-extensions/git-flow
-
-4. Setup REMOTE:
-+Add Remote > connect to GitLab > GitLab Repo: "Company Repo"; Name: Company Repo > Add Remote
-
+If you have any questions or comments, please create an issue.
