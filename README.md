@@ -12,7 +12,9 @@ Live Demo: https://
 ## Setup
 - Install NodeJS 10.15.3
 - `npm install -g gulp gulp-cli`
-- First run server, then run client
+- First download a CORS extension in browser
+such as "Allow-Control-Allow-Origin:" for chrome, 
+then run server, after run client
 
 ## Server - Express JS
 -  Create database via robomongo `dashboard_app`
