@@ -1,0 +1,12 @@
+display content -backend localhost
+ng show -show only account page & save temp data for account changes for 24hrs
+account page
+register page
+login page
+LogOut Page
+notifications "another user is visiting the page" ::custom filters
+search usercard ::add search
+footer options&links
+
+
+

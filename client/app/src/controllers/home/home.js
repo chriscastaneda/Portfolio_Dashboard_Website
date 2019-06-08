@@ -1,4 +1,8 @@
-app.controller('home', ['$scope', 'dashboard', 'database', function ($scope, dashboard, database) {
+app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', function ($scope, dashboard, deviceDetector, database) {
+
+
+    
+
 
     $scope.title = 'The Dashboard Project: Guest';//Page title
     dashboard.title = $scope.title; //send to route.js
@@ -11,10 +15,11 @@ app.controller('home', ['$scope', 'dashboard', 'database', function ($scope, das
         //$scope.object = object.data; //Save json data Locally
         console.log(object.data);//view Json inside array
     })*/
-
+    
+    //change then(function (object) to then(function (response) & $scope.object to $scope.json
     database.readData().then(function (object) {//Store data to $scope.array
-        $scope.object = object.data; //Save json data Locally
-        console.log($scope.object);//view Json inside array
+        $scope.Json = object.data; //Save json data Locally
+        console.log($scope.Json);//view Json inside array
     })
     /*
     database.readDatabyid().then(function (object) {//Store data to $scope.array
@@ -34,17 +39,37 @@ app.controller('home', ['$scope', 'dashboard', 'database', function ($scope, das
 
 
 
-
-
-
    
 
-   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-   $scope.series = ['Series A', 'Series B'];
-    $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-    ];
+
+
+    //Get device data
+    $scope.vm = this;
+    $scope.vm.data = deviceDetector;
+    console.log($scope.vm.data);
+
+    
+    
+    
+    
+    
+
+    /*
+    $scope.chartjsData = [];
+    angular.forEach($scope.object, function (value) {
+        $scope.chartjsData.push(value.visit);
+    });
+    console.log($scope.chartjsData);
+    */
+    
+    
+    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.series = ['Series A', 'Series B'];
+    $scope.data = //$scope.chartjsData;
+        [
+            [65, 59, 80, 81, 56, 55, 40],
+            [28, 48, 40, 19, 86, 27, 90]
+        ];
     $scope.onClick = function (points, evt) {
         console.log(points, evt);
     };
@@ -75,5 +100,4 @@ app.controller('home', ['$scope', 'dashboard', 'database', function ($scope, das
             [65, 59, 80, 81, 56, 55, 40]
         ];
     }, 3000);*/
-
 }]);

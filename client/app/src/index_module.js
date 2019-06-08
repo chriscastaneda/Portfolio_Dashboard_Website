@@ -1,1 +1,5 @@
-var app = angular.module('dashboard', ['ngRoute', 'chart.js']);
+var app = angular.module('dashboard', [
+    'ng.deviceDetector',
+    'ngRoute',
+    'chart.js'
+]);

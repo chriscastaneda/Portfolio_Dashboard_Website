@@ -13,8 +13,8 @@ exports.product_create = function (req, res, next) {
             lastname: req.body.lastname,
             device: req.body.device,
             visit: req.body.visit,
-            guest_x: req.body.x,
-            guest_y: req.body.y
+            x: req.body.x,
+            y: req.body.y
         }
     );
 

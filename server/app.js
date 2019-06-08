@@ -1,10 +1,23 @@
 var express = require('express');
+var path = require('path');
+const open = require('open');
 var bodyParser = require('body-parser');//parses information from POST
 var product = require('./routes/product.route'); // Imports routes for the products
 var mongoose = require('mongoose');
+var indexRouter = require('./routes/index.js');
+
+
 
 // initialize our express app
 var app = express();
+
+ 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use('/', indexRouter);
+
 
 /*//CORS Origion issue between servers, Fixed with chrome extension: Allow-Control-Allow-Origin: *
 app.use(function (req, res, next) {
@@ -35,3 +48,22 @@ var port = 4000;
 app.listen(port, () => {
     console.log('Server is up and running on port number ' + port);
 });
+
+
+// Opens the url in the default browser
+(async () => {
+        await open('http://localhost:4000/');
+})();
+
+//If Express page is open
+var urlExists = require('url-exists');
+urlExists('http://localhost:4000/', function (err, exists) {
+    if (exists) {
+        //console.log(exists);
+        /*refresh page*/
+    } else {
+        /*open browser*/
+        //console.log(exists);
+    }
+});
+

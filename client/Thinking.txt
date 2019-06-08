@@ -1,0 +1,193 @@
+localhost 3000 Front 
+localhost 4000 back-express
+
+https://browsersync.io/docs/gulp
+https://www.browsersync.io/docs/options
+
+How to:
+seperate back and front end
+var = apiUrl: portHere
+
+??
+gulp-serve
+-inject
+-connect
+
+Look into:
+gulp tasks-
+-build
+config
+inject
+scripts
+server
+style
+unit-test
+watch
+
+
+Setup:
+front server- 
+connect pages(routing), js
+
+back server
+crud
+connect to database
+
+
+Style Server port:
+check if port 4000 has a page?
+edit console "Server running on port: localhost:4000"
+create express page 4000
+
+
+
+
+
+Method1 directive scope-----------------------
+directives -post.html(page design), controller(routing), spec(angular 'title = dashboard')
+
+controller -post.html(page content to angular), controller(angular code def), spec( angular 'title = dashboard')
+
+
+Index:
+route: routes
+*************
+New:
+
+directives -post 1.html(page content to angular), controller(routing [app.directive]), specs(angular 'title = dashboard' [app.controller])
+
+controller -postA.html(page design [post 1.html]), controller(angular code def)
+
+Index:
+route: routes(postA)
+
+
+Method2 -----------------<<FOR THER Win
+ng-view w/ ng-include
+
+
+ng-view > routes: templateUrl > home.html: ng-include > Graph.html
+
+Notes:
+fix file structure, header & hraph gap, grapg.js, card.html
+
+
+
+
+
+
+LATERZ:
+particals
+services
+config.js apiUrl:
+
+
+
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+https://themes.getbootstrap.com/product/hyper-responsive-admin-dashboard-template/
+
+https://www.c-sharpcorner.com/UploadFile/dev4634/basic-concepts-in-angular-js/
+
+
+----Database-----
+name
+email
+pass
+device
+location
+interactions
+
+
+http methods crud-
+https://www.baeldung.com/angularjs-crud-with-spring-data-rest
+https://docs.angularjs.org/api/ng/service/$http#$http-methods
+https://www.codeofaninja.com/2015/12/angularjs-crud-example-php.html#top
+https://stackoverflow.com/questions/28548263/best-practices-for-creating-crud-services-in-angularjs
+http://techfunda.com/howto/979/single-page-application-crud-http-service
+https://embed.plnkr.co/wWmWv3/
+https://www.tutlane.com/tutorial/angularjs/angularjs-http-post-method-http-post-with-parameters-example
+
+
+
+CRUD Object IDS:
+----------------
+Call object card id's to display
+
+Cards: call by username
+Graph: 1 object for Guest/UserAccount. Update(add) only
+
+Maps: 1 object for guest location
+Maps: 1 object for UserAccount location
+
+Table: 1 object for lead/score
+https://medium.freecodecamp.org/introduction-to-mongoose-for-mongodb-d2a7aa593c57
+
+
+MY Crud App--
+*Tutorial page about graph updating. "done" tutorial button > update graph
+*Neon glow shadow hexadecimal color user card
+
+
+Public:
+------
+get: all data > display graph/cards, map, table
+get: notifications, graph, table
+
+Registar:
+------
+post: send new data 
+Get: all new data +  graph/cards, map, table
+Login Page();
+
+
+Login:
+-------
+Get: all data //returning user
+Get: all new data +  graph/cards, map, table //Registar
+Update/delete: edit profile 
+get: notifications, graph, table
+
+
+
+
+
+https://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/\
+
+https://mongoosejs.com/docs/schematypes.html
+
+https://blog.cloudboost.io/everything-you-need-to-know-about-mongoose-63fcf8564d52
+
+
+
+cRUD TODO:
+account : create > user: {count, date}
+guest: add cookie > update guest: {count, date}
+
+call graph json
+update json card, graph (When to update)
+
+
+
+json fix date
+async crud
+
+location: 
+https://evdokimovm.github.io/javascript/angularjs/leaflet/geolocation/api/2016/01/07/AngularJS-Geolocation-Web-Application-Step-by-Step.html
+
+devices:
+https://ciphertrick.com/detect-os-browser-and-device-in-angularjs/
+https://www.npmjs.com/package/ng-browser-detector
+
+guest card animation
+account card
+notification Chrome
+Notification log
+express page
+
+create chart js: angularjs chart js json
+https://www.youtube.com/watch?v=_KVYh9LM0eE&ab_channel=LevelUpTuts
+https://embed.plnkr.co/plunk/tswjcE
+https://www.codeproject.com/Tips/1156283/Step-by-Step-Way-to-Use-chart-js-with-AngularJS
+https://dev.to/wiaio/implementing-a-chartjs-line-chart-in-your-angular-application-19d7
+https://www.youtube.com/watch?v=MZ6wMonyVyY&ab_channel=TraversyMedia
+http://jtblin.github.io/angular-chart.js/
