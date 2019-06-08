@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/msintaha/macchiato/master/assets/img/macchiato-text.png">
+<img src="https://github.com/chriscastaneda/Portfolio_Dashboard_Website/blob/master/assets/img/angularjs.png">
 </p>
 
 # Angular Dashboard
