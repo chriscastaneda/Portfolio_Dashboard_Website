@@ -1,14 +1,12 @@
-Livestream Project: https://livestream-a7fc0.firebaseapp.com/
+The dashboard project
 --------------
 ## Softwares & Technologies:
 
--GitHub
+-A MEAN Stack boilerplate to get you started with building Production Ready software/app.
 
--GitKraken
+Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvCZDGkK2CH
 
--Slack
-
--Firebase
+N.B. The server and client sides are fully separate
 
 ## Installations:
 
