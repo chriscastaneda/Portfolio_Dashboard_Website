@@ -1,7 +1,7 @@
-app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', function ($scope, dashboard, deviceDetector, database) {
+app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$window', function ($scope, dashboard, deviceDetector, database, $window) {
 
 
-    
+
 
 
     $scope.title = 'The Dashboard Project: Guest';//Page title
@@ -15,7 +15,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
         //$scope.object = object.data; //Save json data Locally
         console.log(object.data);//view Json inside array
     })*/
-    
+
     //change then(function (object) to then(function (response) & $scope.object to $scope.json
     database.readData().then(function (object) {//Store data to $scope.array
         $scope.Json = object.data; //Save json data Locally
@@ -39,7 +39,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
 
 
 
-   
+
 
 
 
@@ -48,11 +48,11 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
     $scope.vm.data = deviceDetector;
     console.log($scope.vm.data);
 
-    
-    
-    
-    
-    
+
+
+
+
+
 
     /*
     $scope.chartjsData = [];
@@ -61,8 +61,8 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
     });
     console.log($scope.chartjsData);
     */
-    
-    
+
+
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
     $scope.series = ['Series A', 'Series B'];
     $scope.data = //$scope.chartjsData;
@@ -100,4 +100,11 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
             [65, 59, 80, 81, 56, 55, 40]
         ];
     }, 3000);*/
+
+
+
+
+    $window.onload = function () {
+        alert('this is test')
+    }
 }]);

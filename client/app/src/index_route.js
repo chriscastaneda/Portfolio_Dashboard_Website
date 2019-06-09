@@ -9,11 +9,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: 'home'//Paste title to home page from home.js
         })
         .when('/table', {
-            template: '<h2>Body Table Page</h2>',
+            templateUrl: 'app/src/controllers/table/table.html',
             controller: 'table'//Paste title to mable page from table.js
         })
         .when('/maps', {
-            template: '<h2>Body Maps Page</h2>',
+            templateUrl: 'app/src/controllers/maps/maps.html',
             controller: 'maps'//Paste title to maps page from maps.js
         })
         /*.when('/login', {

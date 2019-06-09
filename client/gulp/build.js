@@ -383,11 +383,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: 'home'//Paste title to home page from home.js
         })
         .when('/table', {
-            template: '<h2>Body Table Page</h2>',
+            templateUrl: 'app/src/controllers/table/table.html',
             controller: 'table'//Paste title to mable page from table.js
         })
         .when('/maps', {
-            template: '<h2>Body Maps Page</h2>',
+            templateUrl: 'app/src/controllers/maps/maps.html',
             controller: 'maps'//Paste title to maps page from maps.js
         })
         /*.when('/login', {
@@ -409,26 +409,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         .otherwise({//error handler
             redirectTo: '/'
         })*/
-}])
-app.controller('main', ['$scope', '$location', 'dashboard', 
-    function ($scope, $location, dashboard) { //['$scope',..] handle minify
-
-    $scope.$on('$routeChangeStart', function () {//console log everytime route changes
-
-        $scope.page = $location.path();//send page content to current view
-        $scope.title = dashboard.getTitle;//read title from pages.js
-    }) 
-}])
-
-app.controller('maps', ['$scope', 'dashboard', function($scope, dashboard) {
-
-    $scope.title = 'Maps';//Page title
-    dashboard.title = $scope.title; //send to route.js
-}])
-app.controller('table', ['$scope', 'dashboard', function ($scope, dashboard) {
-
-	$scope.title = 'Table List';//Page title
-	dashboard.title = $scope.title; //send to route.js
 }])
 
 
@@ -543,10 +523,20 @@ app.service('dashboard', function () {
         return $this.title;
     }
 })
-app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', function ($scope, dashboard, deviceDetector, database) {
+app.controller('main', ['$scope', '$location', 'dashboard', 
+    function ($scope, $location, dashboard) { //['$scope',..] handle minify
+
+    $scope.$on('$routeChangeStart', function () {//console log everytime route changes
+
+        $scope.page = $location.path();//send page content to current view
+        $scope.title = dashboard.getTitle;//read title from pages.js
+    }) 
+}])
+
+app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$window', function ($scope, dashboard, deviceDetector, database, $window) {
 
 
-    
+
 
 
     $scope.title = 'The Dashboard Project: Guest';//Page title
@@ -560,7 +550,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
         //$scope.object = object.data; //Save json data Locally
         console.log(object.data);//view Json inside array
     })*/
-    
+
     //change then(function (object) to then(function (response) & $scope.object to $scope.json
     database.readData().then(function (object) {//Store data to $scope.array
         $scope.Json = object.data; //Save json data Locally
@@ -584,7 +574,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
 
 
 
-   
+
 
 
 
@@ -593,11 +583,11 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
     $scope.vm.data = deviceDetector;
     console.log($scope.vm.data);
 
-    
-    
-    
-    
-    
+
+
+
+
+
 
     /*
     $scope.chartjsData = [];
@@ -606,8 +596,8 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
     });
     console.log($scope.chartjsData);
     */
-    
-    
+
+
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
     $scope.series = ['Series A', 'Series B'];
     $scope.data = //$scope.chartjsData;
@@ -645,4 +635,21 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', fun
             [65, 59, 80, 81, 56, 55, 40]
         ];
     }, 3000);*/
+
+
+
+
+    $window.onload = function () {
+        alert('this is test')
+    }
 }]);
+app.controller('maps', ['$scope', 'dashboard', function($scope, dashboard) {
+
+    $scope.title = 'Maps';//Page title
+    dashboard.title = $scope.title; //send to route.js
+}])
+app.controller('table', ['$scope', 'dashboard', function ($scope, dashboard) {
+
+	$scope.title = 'Table List';//Page title
+	dashboard.title = $scope.title; //send to route.js
+}])
