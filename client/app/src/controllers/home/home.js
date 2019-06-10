@@ -19,6 +19,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$w
     //change then(function (object) to then(function (response) & $scope.object to $scope.json
     database.readData().then(function (object) {//Store data to $scope.array
         $scope.Json = object.data; //Save json data Locally
+        console.log('Database objects:');
         console.log($scope.Json);//view Json inside array
     })
     /*
@@ -46,6 +47,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$w
     //Get device data
     $scope.vm = this;
     $scope.vm.data = deviceDetector;
+    console.log('Guest Data:');
     console.log($scope.vm.data);
 
 
@@ -103,8 +105,8 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$w
 
 
 
-
+    //Browser alert message
     $window.onload = function () {
-        alert('this is test')
+        alert('Updates: *View object data in console(F12). ')
     }
 }]);

@@ -1,8 +1,0 @@
-.
-+-- bower.json
-+-- gulpfile.js # Main gulp config
-+-- karma.conf.js # Karma test runner configurations
-+-- package.json
-+-- gulp # Contains gulp configurations 
-+-- app
-    +-- src #angualrjs files

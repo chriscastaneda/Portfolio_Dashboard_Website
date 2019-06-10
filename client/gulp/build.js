@@ -410,6 +410,16 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             redirectTo: '/'
         })*/
 }])
+app.controller('main', ['$scope', '$location', 'dashboard', 
+    function ($scope, $location, dashboard) { //['$scope',..] handle minify
+
+    $scope.$on('$routeChangeStart', function () {//console log everytime route changes
+
+        $scope.page = $location.path();//send page content to current view
+        $scope.title = dashboard.getTitle;//read title from pages.js
+    }) 
+}])
+
 
 
 app.service('database', ['$http', function ($http) {
@@ -523,16 +533,6 @@ app.service('dashboard', function () {
         return $this.title;
     }
 })
-app.controller('main', ['$scope', '$location', 'dashboard', 
-    function ($scope, $location, dashboard) { //['$scope',..] handle minify
-
-    $scope.$on('$routeChangeStart', function () {//console log everytime route changes
-
-        $scope.page = $location.path();//send page content to current view
-        $scope.title = dashboard.getTitle;//read title from pages.js
-    }) 
-}])
-
 app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$window', function ($scope, dashboard, deviceDetector, database, $window) {
 
 
@@ -554,6 +554,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$w
     //change then(function (object) to then(function (response) & $scope.object to $scope.json
     database.readData().then(function (object) {//Store data to $scope.array
         $scope.Json = object.data; //Save json data Locally
+        console.log('Database objects:');
         console.log($scope.Json);//view Json inside array
     })
     /*
@@ -581,6 +582,7 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$w
     //Get device data
     $scope.vm = this;
     $scope.vm.data = deviceDetector;
+    console.log('Guest Data:');
     console.log($scope.vm.data);
 
 
@@ -638,18 +640,18 @@ app.controller('home', ['$scope', 'dashboard', 'deviceDetector', 'database', '$w
 
 
 
-
+    //Browser alert message
     $window.onload = function () {
-        alert('this is test')
+        alert('Updates: *View object data in console(F12). ')
     }
 }]);
-app.controller('maps', ['$scope', 'dashboard', function($scope, dashboard) {
-
-    $scope.title = 'Maps';//Page title
-    dashboard.title = $scope.title; //send to route.js
-}])
 app.controller('table', ['$scope', 'dashboard', function ($scope, dashboard) {
 
 	$scope.title = 'Table List';//Page title
 	dashboard.title = $scope.title; //send to route.js
+}])
+app.controller('maps', ['$scope', 'dashboard', function($scope, dashboard) {
+
+    $scope.title = 'Maps';//Page title
+    dashboard.title = $scope.title; //send to route.js
 }])

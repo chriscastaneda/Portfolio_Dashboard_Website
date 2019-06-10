@@ -3,110 +3,99 @@
 </p>
 
 # Angular Dashboard
-A MEAN Stack boilerplate to get you started with building **Production Ready** software/app.
+A self taught/first attempt in learing a MEAN Stack application. The Dashboard Project is a representation of a real time data analytics dashboard building towards a **Production Ready** software/app.
 
-Live Demo: https://
+Technologies: Mongodb, ExpressJS, AngularJS, NodeJS, Robomongo, Postman, Gulp, Bower, Browserify, ChartsJS
 
-#### Both server and client sides are fully separate
+Live Demo: Coming soon
+
+#### Both server and client sides are fully separate. Hosted on Heroku
 
 ## Setup
 - Install NodeJS 10.15.3
 - `npm install -g gulp gulp-cli`
-- First download a CORS extension in browser
-such as "Allow-Control-Allow-Origin:" for chrome, 
-then run server, after run client
+- First download a CORS extension in browser such as "Allow-Control-Allow-Origin:" for chrome
+- then run server, after run client
 
 ## Server - Express JS
--  Create database via robomongo `dashboard_app`
+- Create database via robomongo `dashboard_app`
 - Navigate to server/
 - `npm install` to install project dependencies
 - `nodemon` to run the app
 
 ```bash
 .
-├── app.js # Main node server folder
-├── config
-│   └── index.js # Configurations go here
-├── controllers
-│   └── posts # example controller with it's test files
-│       ├── TEST
-│       │   └── runner.js
-│       └── index.js
+├── app.js # Main node server 
+├── controllers # project controller schema definitions
+│   └── product.controller.js
 ├── models
-│   └── post # example model
-│       └── index.js
+│   └── product.model.js # schema object
 ├── package.json
-├── public # assets folder
-│   └── stylesheets
+├── assets # assets folder
+│   └── css
 │       └── style.css
-├── routes # contains all route endpoints
-│   └── endpoints
-│       └── index.js
+├── routes # contains route endpoints & express index page
+│   ├── index.js
+    └── product.route.js
 ├── test # A configuration for running tests
 │   └── utils.js
-└── views # Frontend view (not used)
-    ├── error.jade
-    ├── index.jade
-    └── layout.jade
+└── views # Express page pug views
+    ├── index.pug
+    └── layout.pug
  ```
 
 ## Client - Angular JS
 - Navigate to client/
 - `npm install`
-- `gulp` to run the app
+- Turn on 'CORS' extention in browser
+- `gulp server` to run the app
+- `gulp` to run in dev mode
 
 ```bash
 .
-├── bower.json
 ├── gulpfile.js # Main gulp config
-├── karma.conf.js # Karma test runner configurations
 ├── package.json
+├── bower_components # Contains device data dependencies
 └── gulp # Contains gulp configurations 
-└── src
-    ├── app
-    │   ├── components # Directives
+└── app
+    ├── src
+    │   ├── directives # Components
     │   │   └── posts
     │   │       ├── posts.directive.js
     │   │       ├── posts.directive.spec.js
     │   │       └── posts.html
-    │   ├── controllers # Controllers (views)
-    │   │   ├── edit
-    │   │   │   ├── edit.controller.js
-    │   │   │   ├── edit.controller.spec.js
-    │   │   │   └── edit.html
-    │   │   ├── main
-    │   │   │   ├── main.controller.js
-    │   │   │   ├── main.controller.spec.js
-    │   │   │   └── main.html
-    │   │   ├── post
-    │   │   │   ├── post.controller.js
-    │   │   │   ├── post.controller.spec.js
-    │   │   │   └── post.html
-    │   │   └── publish
-    │   │       ├── publish.controller.js
-    │   │       ├── publish.controller.spec.js
-    │   │       └── publish.html
+    │   ├── controllers # Controllers
+    │   │   ├── home
+    │   │   │   ├── home.html
+    │   │   │   └── home.js
+    │   │   ├── maps
+    │   │   │   ├── maps.html
+    │   │   │   └── maps.js
+    │   │   └── table
+    │   │       ├── table.html
+    │   │       └── table.js
     │   ├── filters # Custom filters
-    │   │   └── sanitize
-    │   │       └── sanitize.filter.js
-    │   ├── index.config.js # Angular configurations
-    │   ├── index.constants.js # Angular global constants
-    │   ├── index.module.js # Angular modules
-    │   ├── index.route.js # Angular routes
-    │   ├── index.run.js # Main runblock of angular
-    │   ├── index.scss # Main SASS file
+    │   │   ├── generator.js
+    │   │   └── notification.js
+    │   ├── index_module.js # Angular modules
+    │   ├── index_route.js # Angular routes
+    │   ├── views # Currently not in use
     │   ├── partials # Static HTMLs
+    │   │   ├── footer.html
     │   │   ├── nav.html
     │   │   └── sidebar.html
     │   └── services # Angular services
-    │       └── posts
-    │           ├── posts.service.js
-    │           └── posts.service.spec.js
+    │       ├── database.js
+    │       ├── geolocation.js
+    │       └── pages.js
     ├── assets # App assets
     │   └── img
-    │       ├── favicon.ico
-    │       ├── favicon.png
-    │       └── macchiato.png
+    │       ├── construction.jpg
+    │       └── default-avatar.png
+	│   └── css
+    │       ├── mapbox.css
+    │       ├── responsive.css
+    │       └── style.css
     └── index.html # Main index file
 ```
 
