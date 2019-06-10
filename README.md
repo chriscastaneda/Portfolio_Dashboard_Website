@@ -11,6 +11,8 @@ Live Demo: Coming soon
 
 #### Both server and client sides are fully separate. Hosted on Heroku
 
+###### currently underconstruction, view project and see current progress!
+
 ## Setup
 - Install NodeJS 10.15.3
 - `npm install -g gulp gulp-cli`

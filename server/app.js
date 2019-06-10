@@ -51,7 +51,7 @@ app.listen(port, () => {
 });
 
 
-// Opens the url in the default browser
+// Opens the url in default browser
 (async () => {
         await open('http://localhost:4000/');
 })();
