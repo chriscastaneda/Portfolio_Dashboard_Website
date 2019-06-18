@@ -3,9 +3,9 @@
 </p>
 
 # Angular Dashboard
-A self taught/first attempt in learing a MEAN Stack application. The Dashboard Project is a representation of a real time data analytics dashboard building towards a **Production Ready** software/app.
+A Full Stack, first attempt in learing a MEAN Stack application. The Dashboard Project is a representation of a real time data analytics dashboard building towards a **Production Ready** software/app.
 
-Technologies: Mongodb, ExpressJS, AngularJS, NodeJS, Robomongo, Postman, Gulp, Bower, Browserify, ChartsJS
+Technologies: Mongodb, ExpressJS, AngularJS, NodeJS, Robomongo, Postman, Gulp, Bower, Browserify, PugJS, ChartsJS
 
 Live Demo: Coming soon
 
@@ -15,8 +15,8 @@ Live Demo: Coming soon
 
 ## Setup
 - Install NodeJS 10.15.3
-- `npm install` in main file directory
-- First download a CORS extension in browser such as "Allow-Control-Allow-Origin:" for chrome
+- `npm install` in root file directory
+- First download a CORS extension in browser such as "Allow-Control-Allow-Origin" for chrome
 - then run server, after run client
 
 ## Server - Express JS
