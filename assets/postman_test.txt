@@ -1,0 +1,48 @@
+-test controller:
+GET || localhost:4000/products/test
+authorization
+body
+preview
+"Greetings from the Test controller!"
+
+
+-create object
+POST || localhost:4000/products/create
+body
+x-www-form-urlencoded
+
+*Key: name, value: apple
+*key: price, value: 15
+
+body
+preview
+"Product Created successfully"
+
+
+-read object by id
+GET || localhost:4000/products/id_Number_Here
+authorization
+body
+preview
+"{"_id":"5ab6e3823f5b4f4ca18c0517","name":"apple","price":15,"__v":0}"
+
+
+-update object
+PUT || localhost:4000/products/id_Number_Here/update
+body
+x-www-form-urlencoded
+
+*Key: name, value: apple2
+*key: price, value: 17
+
+body
+preview
+"Product updated."
+
+
+-delete object
+DELETE || localhost:4000/products/id_Number_Here/delete
+authorization
+body
+preview
+"Deleted successfully!"

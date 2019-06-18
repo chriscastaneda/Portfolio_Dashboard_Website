@@ -15,14 +15,15 @@ Live Demo: Coming soon
 
 ## Setup
 - Install NodeJS 10.15.3
-- `npm install -g gulp gulp-cli`
+- `npm install` in main file directory
 - First download a CORS extension in browser such as "Allow-Control-Allow-Origin:" for chrome
 - then run server, after run client
 
 ## Server - Express JS
 - Create database via robomongo `dashboard_app`
 - Navigate to server/
-- `npm install` to install project dependencies
+- `npm install`
+- `npm install -g nodemon` to install project dependencies
 - `nodemon` to run the app
 
 ```bash
@@ -49,6 +50,7 @@ Live Demo: Coming soon
 ## Client - Angular JS
 - Navigate to client/
 - `npm install`
+- `npm install -g gulp gulp-cli` to install project dependencies
 - Turn on 'CORS' extention in browser
 - `gulp server` to run the app
 - `gulp` to run in dev mode
