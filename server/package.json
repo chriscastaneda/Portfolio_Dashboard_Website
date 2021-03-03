@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.5.1",
     "open": "^6.3.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "url-exists": "^1.0.3"
   },
   "devDependencies": {
